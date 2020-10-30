@@ -18,5 +18,31 @@ CHIP Mux8Way16 {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    Mux4Way16(a = a[0..15], b = b[0..15], c = c[0..15], d = d[0..15], sel = sel[0..1], 
+            out[0] = abdcout0, out[1] = abdcout1, out[2] = abdcout2, out[3] = abdcout3, 
+            out[4] = abdcout4, out[5] = abdcout5, out[6] = abdcout6, out[7] = abdcout7, 
+            out[8] = abdcout8, out[9] = abdcout9, out[10] = abdcout10, out[11] = abdcout11, 
+            out[12] = abdcout12, out[13] = abdcout13, out[14] = abdcout14, out[15] = abdcout15);
+    Mux4Way16(a = e[0..15], b = f[0..15], c = g[0..15], d = h[0..15], sel = sel[0..1],
+            out[0] = efghout0, out[1] = efghout1, out[2] = efghout2, out[3] = efghout3, 
+            out[4] = efghout4, out[5] = efghout5, out[6] = efghout6, out[7] = efghout7, 
+            out[8] = efghout8, out[9] = efghout9, out[10] = efghout10, out[11] = efghout11, 
+            out[12] = efghout12, out[13] = efghout13, out[14] = efghout14, out[15] = efghout15);
+    Not(in = abdcout0, out = test);
+    Mux(a = abdcout0, b = efghout0, sel = sel[2], out = out[0]);
+    Mux(a = abdcout1, b = efghout1, sel = sel[2], out = out[1]);
+    Mux(a = abdcout2, b = efghout2, sel = sel[2], out = out[2]);
+    Mux(a = abdcout3, b = efghout3, sel = sel[2], out = out[3]);
+    Mux(a = abdcout4, b = efghout4, sel = sel[2], out = out[4]);
+    Mux(a = abdcout5, b = efghout5, sel = sel[2], out = out[5]);
+    Mux(a = abdcout6, b = efghout6, sel = sel[2], out = out[6]);
+    Mux(a = abdcout7, b = efghout7, sel = sel[2], out = out[7]);
+    Mux(a = abdcout8, b = efghout8, sel = sel[2], out = out[8]);
+    Mux(a = abdcout9, b = efghout9, sel = sel[2], out = out[9]);
+    Mux(a = abdcout10, b = efghout10, sel = sel[2], out = out[10]);
+    Mux(a = abdcout11, b = efghout11, sel = sel[2], out = out[11]);
+    Mux(a = abdcout12, b = efghout12, sel = sel[2], out = out[12]);
+    Mux(a = abdcout13, b = efghout13, sel = sel[2], out = out[13]);
+    Mux(a = abdcout14, b = efghout14, sel = sel[2], out = out[14]);
+    Mux(a = abdcout15, b = efghout15, sel = sel[2], out = out[15]);
 }
